@@ -1,0 +1,52 @@
+[img]https://img.shields.io/static/v1?logo=GitHub&labelColor=gray&color=blue&logoColor=white&label=&message=Open Source[/img] [img]https://img.shields.io/github/license/GenZmeY/KF2-DroppedPickupLifespan[/img] [img]https://img.shields.io/steam/downloads/2864944858[/img] [img]https://img.shields.io/steam/favorites/2864944858[/img] [img]https://img.shields.io/steam/update-date/2864944858[/img] [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2864944858][img]https://img.shields.io/github/v/tag/GenZmeY/KF2-DroppedPickupLifespan[/img][/url]
+
+[h1]Description[/h1]
+Small server-side mutator that changes the lifespan of thrown weapons and dosh.
+
+[h1]Whitelisted?[/h1]
+No. This mod is not whitelisted and will de-rank your server. Any XP gained will not be saved.
+
+[h1]Usage (single player)[/h1]
+[olist]
+[*]Subscribe to this mutator;
+[*]Start KF2; 
+[*]Open console (`) and input:
+[b]open KF-BioticsLab?Mutator=DPL.DPLMut[/b]
+(replace the map and add the parameters you need)
+[*]<Enter>.
+[/olist]
+[h1]Usage (server)[/h1]
+[b]Note:[/b] [i]If you don't understand what is written here, read the article [url=https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2)][u]Dedicated Server (KF2 wiki)[/u][/url] before following these instructions.[/i]
+[olist]
+[*]Open your [b]PCServer-KFEngine.ini[/b] / [b]LinuxServer-KFEngine.ini[/b];
+[*]Find the [b][IpDrv.TcpNetDriver][/b] section and make sure that there is a line (add if not):
+[b]DownloadManagers=OnlineSubsystemSteamworks.SteamWorkshopDownload[/b]
+❗️ If there are several [b]DownloadManagers=[/b] then the line above should be the first ❗️
+[*]Add the following string to the [b][OnlineSubsystemSteamworks.KFWorkshopSteamworks][/b] section (create one if it doesn't exist):
+[b]ServerSubscribedWorkshopItems=2864944858[/b]
+[*]Start the server and wait while the mutator is downloading;
+[*]Add mutator to server start parameters: [b]?Mutator=DPL.DPLMut[/b] and restart the server.
+[/olist]
+
+[h1]Setup (KFDPL.ini)[/h1]
+Config will be created at the first start[b]*[/b].
+[list]
+[*][b]Weap[/b] - time in seconds after which weapon disappears. If zero or less the default value is used.
+[*][b]Dosh[/b] - time in seconds after which dosh disappears. If zero or less the default value is used.
+[/list]
+
+Do not use too large values because a large number of objects on the map can cause lags.
+
+[h1]Notes[/h1]
+📌 Unfortunately there is no way to change ammo lifespan for technical reasons (the CheckRelevance() function is never called on Projectile objects). Ammo will disappear within a minute.
+
+[h1]Troubleshooting[/h1]
+[b](*)[/b] If your config is not created for some reason, create it manually with the following content:
+[b][DPL.DPL]
+Version=0
+[/b]
+
+Then start the server and check the file again - config content should be generated.
+
+[h1]Sources[/h1]
+[url=https://github.com/GenZmeY/KF2-DroppedPickupLifespan]https://github.com/GenZmeY/KF2-DroppedPickupLifespan[/url] [b](GNU GPLv3)[/b]
