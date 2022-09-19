@@ -1,7 +1,7 @@
 [img]https://img.shields.io/static/v1?logo=GitHub&labelColor=gray&color=blue&logoColor=white&label=&message=Open Source[/img] [img]https://img.shields.io/github/license/GenZmeY/KF2-DroppedPickupLifespan[/img] [img]https://img.shields.io/steam/downloads/2864944858[/img] [img]https://img.shields.io/steam/favorites/2864944858[/img] [img]https://img.shields.io/steam/update-date/2864944858[/img] [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2864944858][img]https://img.shields.io/github/v/tag/GenZmeY/KF2-DroppedPickupLifespan[/img][/url]
 
 [h1]Description[/h1]
-Small server-side mutator that changes the lifespan of thrown weapons and dosh.
+Small server-side mutator that changes the lifespan of dropped weapons and dosh.
 
 [h1]Whitelisted?[/h1]
 No. This mod is not whitelisted and will de-rank your server. Any XP gained will not be saved.

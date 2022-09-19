@@ -9,7 +9,8 @@ enum E_PickupType
 {
 	PT_NotPickup,
 	PT_Weapon,
-	PT_Dosh
+	PT_Dosh,
+	PT_Carryable
 };
 
 var private config int        Version;
@@ -119,6 +120,7 @@ public function ModifyLifespan(Actor A)
 			}
 			break;
 		
+		case PT_Carryable:
 		case PT_NotPickup:
 		default:
 			break;
@@ -132,6 +134,10 @@ private function E_PickupType PickupType(Actor A)
 	if (KFDroppedPickup_Cash(A) != None)
 	{
 		return PT_Dosh;
+	}
+	else if (KFDroppedPickup_Carryable(A) != None)
+	{
+		return PT_Carryable;
 	}
 	else if (KFDroppedPickup(A) != None)
 	{
