@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/github/license/GenZmeY/KF2-CustomTraderInventory)](LICENSE)
 
 # Description
-Small server-side mutator that changes the lifespan of thrown weapons and dosh.  
+Small server-side mutator that changes the lifespan of dropped weapons and dosh.  
 
 # Usage & Setup
 [See steam workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=2864944858)
