@@ -13,7 +13,7 @@ https://forums.tripwireinteractive.com/index.php?threads/whitelisting-mods-and-m
 [olist]
 [*]Subscribe to this mutator;
 [*]Start KF2; 
-[*]Open console (`) and input:
+[*]Open console (~) and input:
 [b]open KF-BioticsLab?Mutator=DPL.DPLMut[/b]
 (replace the map and add the parameters you need)
 [*]<Enter>.
