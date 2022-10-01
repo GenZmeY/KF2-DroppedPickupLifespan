@@ -42,7 +42,7 @@ Version=0[/b]
 [*]Close the game/server
 [/olist]
 [b]Right now this is the only way to correctly create the default config.[/b]
-Unfortunately I can't do anything about it because it's a problem in the game and not in the mutator. I hope TWI fixes this someday.
+Unfortunately I can't do anything about it because it's a game problem (not mutator). I hope TWI fixes this someday.
 
 [h1]Setup (KFDPL.ini)[/h1]
 [list]
