@@ -38,7 +38,7 @@ So if you are using this mutator for the first time, I highly recommend doing th
 [*]Create (modify) [b]KFDPL.ini[/b] manually. Put the following content there:
 [b][DPL.DPL]
 Version=0[/b]
-[*]Start the game/server to generate the contents of the config
+[*]Start the game/server with DPL to generate the contents of the config
 [*]Close the game/server
 [/olist]
 [b]Right now this is the only way to correctly create the default config.[/b]
@@ -50,7 +50,9 @@ Unfortunately I can't do anything about it because it's a game problem (not muta
 [*][b]Dosh[/b] - time in seconds after which dosh disappears. If zero or less the default value is used.
 [/list]
 
-Do not use too large values because a large number of objects on the map can cause lags.
+❗️ Note that a large number of objects on the map can cause lags.
+Some unscrupulous players can use this to harm your server: for example, they can throw a lot of money or weapons in a place inaccessible to other players (for example, in the pool on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1210703659]KF-KillingPool[/url]).
+So do not use too large values when you configure the mutator.
 
 [h1]Notes[/h1]
 📌 Unfortunately there is no way to change ammo lifespan for technical reasons (the CheckRelevance() function is never called on Projectile objects). Ammo will disappear within 1-3 minutes depending on the type of projectile..
