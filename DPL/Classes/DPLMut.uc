@@ -10,19 +10,19 @@ public simulated function bool SafeDestroy()
 public event PreBeginPlay()
 {
 	Super.PreBeginPlay();
-	
+
 	if (WorldInfo.NetMode == NM_Client) return;
-	
+
 	foreach WorldInfo.DynamicActors(class'DPL', DPL)
 	{
 		break;
 	}
-	
+
 	if (DPL == None)
 	{
 		DPL = WorldInfo.Spawn(class'DPL');
 	}
-	
+
 	if (DPL == None)
 	{
 		`Log_Base("FATAL: Can't Spawn 'DPL'");
@@ -33,7 +33,7 @@ public event PreBeginPlay()
 public function AddMutator(Mutator Mut)
 {
 	if (Mut == Self) return;
-	
+
 	if (Mut.Class == Class)
 		Mut.Destroy();
 	else
@@ -55,5 +55,5 @@ public function bool CheckRelevance(Actor A)
 
 defaultproperties
 {
-	
+
 }
