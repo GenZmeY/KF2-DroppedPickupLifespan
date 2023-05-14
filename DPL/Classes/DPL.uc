@@ -19,58 +19,58 @@ var private config E_LogLevel LogLevel;
 public simulated function bool SafeDestroy()
 {
 	`Log_Trace();
-	
+
 	return (bPendingDelete || bDeleteMe || Destroy());
 }
 
 public event PreBeginPlay()
 {
 	`Log_Trace();
-	
+
 	if (WorldInfo.NetMode == NM_Client)
 	{
 		`Log_Fatal("NetMode:" @ WorldInfo.NetMode);
 		SafeDestroy();
 		return;
 	}
-	
+
 	Super.PreBeginPlay();
-	
+
 	Init();
 }
 
 private function Init()
 {
 	`Log_Trace();
-	
+
 	if (Version == `NO_CONFIG)
 	{
 		LogLevel = LL_Info;
 		SaveConfig();
 	}
-	
+
 	CfgLifespan.static.InitConfig(Version, LatestVersion, LogLevel);
-	
+
 	switch (Version)
 	{
 		case `NO_CONFIG:
 			`Log_Info("Config created");
-			
+
 		case MaxInt:
 			`Log_Info("Config updated to version" @ LatestVersion);
 			break;
-			
+
 		case LatestVersion:
 			`Log_Info("Config is up-to-date");
 			break;
-			
+
 		default:
 			`Log_Warn("The config version is higher than the current version (are you using an old mutator?)");
 			`Log_Warn("Config version is" @ Version @ "but current version is" @ LatestVersion);
 			`Log_Warn("The config version will be changed to" @ LatestVersion);
 			break;
 	}
-	
+
 	if (LatestVersion != Version)
 	{
 		Version = LatestVersion;
@@ -84,16 +84,16 @@ private function Init()
 		SaveConfig();
 	}
 	`Log_Base("LogLevel:" @ LogLevel);
-	
+
 	CfgLifespan.static.Load(LogLevel);
-	
+
 	`Log_Info("Initialized");
 }
 
 public function ModifyLifespan(Actor A)
 {
 	`Log_Trace();
-	
+
 	switch (PickupType(A))
 	{
 		case PT_Dosh:
@@ -107,7 +107,7 @@ public function ModifyLifespan(Actor A)
 				`Log_Debug("Skip modify dosh lifespan");
 			}
 			break;
-			
+
 		case PT_Weapon:
 			if (CfgLifespan.default.Weap > 0)
 			{
@@ -119,7 +119,7 @@ public function ModifyLifespan(Actor A)
 				`Log_Debug("Skip modify weapon lifespan");
 			}
 			break;
-		
+
 		case PT_Carryable:
 		case PT_NotPickup:
 		default:
@@ -130,7 +130,7 @@ public function ModifyLifespan(Actor A)
 private function E_PickupType PickupType(Actor A)
 {
 	`Log_Trace();
-	
+
 	if (KFDroppedPickup_Cash(A) != None)
 	{
 		return PT_Dosh;
@@ -143,7 +143,7 @@ private function E_PickupType PickupType(Actor A)
 	{
 		return PT_Weapon;
 	}
-	
+
 	return PT_NotPickup;
 }
 
