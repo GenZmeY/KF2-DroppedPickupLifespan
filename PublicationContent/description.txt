@@ -1,61 +1,80 @@
 [img]https://img.shields.io/static/v1?logo=GitHub&labelColor=gray&color=blue&logoColor=white&label=&message=Open Source[/img] [img]https://img.shields.io/github/license/GenZmeY/KF2-DroppedPickupLifespan[/img] [img]https://img.shields.io/steam/downloads/2864944858[/img] [img]https://img.shields.io/steam/favorites/2864944858[/img] [img]https://img.shields.io/steam/update-date/2864944858[/img] [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2864944858][img]https://img.shields.io/github/v/tag/GenZmeY/KF2-DroppedPickupLifespan[/img][/url]
 
-[h1]Description[/h1]
+[h1]📋 Description[/h1]
 Small server-side mutator that changes the lifespan of thrown weapons and dosh.
 
-[h1]Whitelisted?[/h1]
-[b]No.[/b] But I really hope that it will be whitelisted.
+[h1]❌ Whitelisted?[/h1]
+No. This mod is not whitelisted and will de-rank your server. Any XP earned will not be saved.
 
-[b]⚠️ I submitted whitelist request here:[/b]
+But I hope that it will be whitelisted - I submitted whitelist request here:
 https://forums.tripwireinteractive.com/index.php?threads/whitelisting-mods-and-mutators.120340/post-2353663
 
-[h1]Usage (single player)[/h1]
+[h1]🎮 Usage (single player)[/h1]
 [olist]
-[*]Subscribe to this mutator;
-[*]Start KF2;
-[*]Open console (~) and input:
-[b]open KF-BioticsLab?Mutator=DPL.Mut[/b]
-(replace the map and add the parameters you need)
-[*]<Enter>.
+[*]Subscribe to this mutator.
+[*]Create a file [b](*)[/b]: [code]C:\Users\<username>\Documents\My Games\KillingFloor2\KFGame\Config\KFDPL.ini[/code]
+with content:
+[code][DPL.DPL]
+Version=0[/code]
+[*]Launch KF2.
+[*]Open console (~) and start any map with the mutator (this will generate the default KFDPL.ini content):
+[code]open KF-BioticsLab?Mutator=DPL.Mut[/code]
+[*]Close the game and configure the mutator (see [b]⚙️ Setup (KFDPL.ini)[/b] below).
+[*]Launch KF2 again, open the console, and start the game:
+[code]open KF-BioticsLab?Game=KFGameContent.KFGameInfo_Survival?Difficulty=3?GameLength=2?Mutator=DPL.Mut[/code]
+(replace the map and set/add parameters you need).
 [/olist]
-[h1]Usage (server)[/h1]
-[b]Note:[/b] [i]If you don't understand what is written here, read the article [url=https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2)][u]Dedicated Server (KF2 wiki)[/u][/url] before following these instructions.[/i]
+
+[h1]🖥️ Usage (server)[/h1]
+[b]Note:[/b] [i]If this is unclear, first read: [url=https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2)][u]Dedicated Server Guide (KF2 wiki)[/u][/url][/i]
 [olist]
-[*]Open your [b]PCServer-KFEngine.ini[/b] / [b]LinuxServer-KFEngine.ini[/b];
-[*]Find the [b][IpDrv.TcpNetDriver][/b] section and make sure that there is a line (add if not):
-[b]DownloadManagers=OnlineSubsystemSteamworks.SteamWorkshopDownload[/b]
-❗️ If there are several [b]DownloadManagers=[/b] then the line above should be the first ❗️
+[*]Open [b]PCServer-KFEngine.ini[/b] / [b]LinuxServer-KFEngine.ini[/b].
+[*]Find [b][IpDrv.TcpNetDriver][/b] section and ensure line exists (add if missing):
+[code]DownloadManagers=OnlineSubsystemSteamworks.SteamWorkshopDownload[/code]
+(If there are several [b]DownloadManagers[/b] then the line above should be the first)
 [*]Add the following string to the [b][OnlineSubsystemSteamworks.KFWorkshopSteamworks][/b] section (create one if it doesn't exist):
-[b]ServerSubscribedWorkshopItems=2864944858[/b]
-[*]Start the server and wait while the mutator is downloading;
-[*]Add mutator to server start parameters: [b]?Mutator=DPL.Mut[/b] and restart the server.
+[code]ServerSubscribedWorkshopItems=2864944858[/code]
+[*]Start server and wait for mutator download.
+[*]When the download is complete, stop the server.
+[*]Create a file [b](*)[/b]: [code]<kf2-server>\KFGame\Config\KFDPL.ini[/code]
+with content:
+[code][DPL.DPL]
+Version=0[/code]
+[*]Add mutator to server start parameters: [code]?Mutator=DPL.Mut[/code] and start the server (this will generate the default KFDPL.ini content).
+[*]Stop the server and configure the mutator (see [b]⚙️ Setup (KFDPL.ini)[/b] below).
+[*]Start the server.
 [/olist]
 
-[h1]Important setup information[/h1]
-The config should be created on first start, but now the game contains a bug that initializes the config values ​​randomly if they are not explicitly set. Thus, the config may have incorrect values ​​or not be created at all.
-So if you are using this mutator for the first time, I highly recommend doing the following:
-[olist]
-[*]Create (modify) [b]KFDPL.ini[/b] manually. Put the following content there:
-[b][DPL.DPL]
-Version=0[/b]
-[*]Start the game/server with DPL to generate the contents of the config
-[*]Close the game/server
-[/olist]
-[b]Right now this is the only way to correctly create the default config.[/b]
-Unfortunately I can't do anything about it because it's a game problem (not mutator). I hope TWI fixes this someday.
+[h1]🐞 (*) Buggy config initialization[/h1]
+This mutator (like many others) relies on UnrealScript's default values (0 for int type) to detect first-time use and generate a config.
+However, the game contains a bug that initializes unset values to random data, which can lead to incorrect settings or missing configs.
 
-[h1]Setup (KFDPL.ini)[/h1]
+As a workaround, I recommend explicitly setting [b]Version=0[/b] in the config during the first initialization.
+
+Unfortunately, I can't fix this issue because it's a game engine problem (not the mutator's fault).
+
+[h1]⚙️ Setup (KFDPL.ini)[/h1]
 [list]
-[*][b]Weap[/b] - time in seconds after which weapon disappears. If zero or less the default value is used.
-[*][b]Dosh[/b] - time in seconds after which dosh disappears. If zero or less the default value is used.
+[*][b]Weap[/b] - Time in seconds after which weapon disappears. If zero or less the default value is used.
+[*][b]Dosh[/b] - Time in seconds after which dosh disappears. If zero or less the default value is used.
 [/list]
 
-❗️ Note that a large number of objects on the map can cause lags.
-Some unscrupulous players can use this to harm your server: for example, they can throw a lot of money or weapons in a place inaccessible to other players (for example, in the pool on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1210703659]KF-KillingPool[/url]).
+[h1]📌 Notes[/h1]
+[list]
+[*]A large number of objects on the map can cause lags.
+Some unscrupulous players may exploit this to harm your server: for example, they can throw a lot of money or weapons in a place inaccessible to other players (for example, in the pool on [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1210703659]KF-KillingPool[/url]).
 So do not use too large values when you configure the mutator.
+[*]Unfortunately there is no way to change ammo lifespan for technical reasons (the CheckRelevance() function is never called on Projectile objects). Ammo will disappear within 1-3 minutes depending on the type of projectile.
+[/list]
 
-[h1]Notes[/h1]
-📌 Unfortunately there is no way to change ammo lifespan for technical reasons (the CheckRelevance() function is never called on Projectile objects). Ammo will disappear within 1-3 minutes depending on the type of projectile..
+[h1]🌍 Credits[/h1]
+[list]
+[*]The cat on the cover is Meawbin (original character by [url=https://x.com/horrormove]Cotton Valent[/url]).
+[/list]
 
-[h1]Sources[/h1]
+[h1]☑️ Status: Completed[/h1]
+✔️ The mutator works with the current version of the game (v1150) and I have implemented everything I planned.
+⛔️ Development has stopped: I no longer have the time or motivation to maintain this mod. No further updates or bug fixes are planned.
+
+[h1]📜 Sources[/h1]
 [url=https://github.com/GenZmeY/KF2-DroppedPickupLifespan]https://github.com/GenZmeY/KF2-DroppedPickupLifespan[/url] [b](GNU GPLv3)[/b]
