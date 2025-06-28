@@ -1,4 +1,4 @@
-[img]https://img.shields.io/static/v1?logo=GitHub&labelColor=gray&color=blue&logoColor=white&label=&message=Open Source[/img] [img]https://img.shields.io/github/license/GenZmeY/KF2-DroppedPickupLifespan[/img] [img]https://img.shields.io/steam/downloads/2864944858[/img] [img]https://img.shields.io/steam/favorites/2864944858[/img] [img]https://img.shields.io/steam/update-date/2864944858[/img] [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2864944858][img]https://img.shields.io/github/v/tag/GenZmeY/KF2-DroppedPickupLifespan[/img][/url]
+[img]https://img.shields.io/static/v1?logo=GitHub&labelColor=gray&color=blue&logoColor=white&label=&message=Open Source[/img] [img]https://img.shields.io/github/license/GenZmeY/KF2-DroppedPickupLifespan[/img] [img]https://img.shields.io/steam/favorites/2864944858[/img] [img]https://img.shields.io/steam/update-date/2864944858[/img] [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2864944858][img]https://img.shields.io/github/v/tag/GenZmeY/KF2-DroppedPickupLifespan[/img][/url]
 
 [h1]📋 Description[/h1]
 Small server-side mutator that changes the lifespan of thrown weapons and dosh.
@@ -77,4 +77,4 @@ So do not use too large values when you configure the mutator.
 ⛔️ Development has stopped: I no longer have the time or motivation to maintain this mod. No further updates or bug fixes are planned.
 
 [h1]📜 Sources[/h1]
-[url=https://github.com/GenZmeY/KF2-DroppedPickupLifespan]https://github.com/GenZmeY/KF2-DroppedPickupLifespan[/url] [b](GNU GPLv3)[/b]
+[url=https://github.com/GenZmeY/KF2-DroppedPickupLifespan]https://github.com/GenZmeY/KF2-DroppedPickupLifespan[/url] [b](GPL-3.0-or-later)[/b]
